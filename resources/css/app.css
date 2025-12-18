@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+@layer utilities {
+    #sidebar {
+        transition: all 0.3s;
+    }
+
+    #sidebarToggled {
+        transition: all 1s;
+    }
+
+    .toggled-sidebar {
+        transform: translateX(-100%);
+    }
+    .toggled-sidebar + nav {
+        opacity: 100%;
+    }
+
+    .toggled-main {
+        margin-left: calc(110px + 20px);
+    }
+    
+    .menu-btn {
+        font-weight: bold;
+        padding: 8px 0;
+        text-align: center;
+        width: 50%;
+        border-radius: calc(infinity * 1px);
+    }
+
+    .menu-btn:hover:not(.active) {
+        cursor: pointer;
+        background: #d1d5dc;
+    }
+    .menu-btn.active {
+        background: white;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: #c6c6c6;
+    }
+
+    .content-item {
+        display: none;
+    }
+
+    .content-item.active {
+        display: grid;
+    }
+
+    .active-status {
+        background: #52fe61;
+        color: #03c513;
+    }
+    .complete-status {
+        background: #78b3ff;
+        color: #0565e2;
+    }
+    .overdue-status {
+        background: #ff8585;
+        color: #c30606;
+    }
+    .paused-status {
+        background: #ffff6c;
+        color: #cfcf00;
+    }
+}
